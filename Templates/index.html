@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <link href='{{ url_for('static', filename='style.css') }}' rel='stylesheet' type='text/css'>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+  
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-12 col-lg-11 col-xl-10">
+                <div class="card d-flex mx-auto my-5">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12 c1 p-5">
+                            <!-- <div class="row mb-5 m-3"> <img src="https://i.imgur.com/pFfTOwy.jpg" width="70vw" height="55vh" alt=""> </div> <img src="https://i.imgur.com/kdE7GKw.jpg" width="120vw" height="210vh" class="mx-auto d-flex" alt="Teacher"> -->
+                            <div class="row justify-content-center">
+                                <div class="w-75 mx-md-5 mx-1 mx-sm-2 mb-5 mt-4 px-sm-5 px-md-2 px-xl-1 px-2">
+                                    <h1 class="wlcm">Air Quality Index Prediction</h1> <span class="sp1"> <span class="px-3 bg-danger rounded-pill"></span> <span class="ml-2 px-1 rounded-circle"></span> <span class="ml-2 px-1 rounded-circle"></span> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12 c2 px-5 pt-5">
+                            <form action="{{ url_for('predict') }}" method="post" class="px-5 ">
+                                <div class="d-flex">
+                                    <h3 class="font-weight-bold">Enter values of following content in air </h3>
+                                </div> 
+                                <input class="text-black-50" type="text" name="PM2.5" placeholder="PM2.5"> 
+                                <input class="text-black-50" type="text" name="PM10" placeholder="PM10">
+                                <input class="text-black-50" type="text" name="Temp" placeholder="Temp"> 
+                                <input class="text-black-50" type="text" name="Humid" placeholder="Humid">
+
+                                <button type="submit" class="text-white text-weight-bold bt ac">Predict Air Quality Index</button>
+                            </form>
+                            <div class="pb-5" style="margin-top: 20px;">
+                                <h4 class="text-white bt ac" style="text-align: center; padding: 10px; margin-left: 50px; margin-right: 60px; border-radius: 8px; border: 1px solid #f5f0ef;color: #dccece" type="text" aria-placeholder="Result">{{ prediction_text }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
