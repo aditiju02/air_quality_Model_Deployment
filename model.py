@@ -77,15 +77,3 @@ print("R squared score =", round(sm.r2_score(ytest, predict), 2))
 
 
 pickle.dump(knn, open("model.pkl", "wb"))
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
